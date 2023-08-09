@@ -872,8 +872,9 @@ class PilotScreen(Screen):
         self.ids.pilot_loader_2.load_action()
         mapping = copy(rc_handler.data['user_pilot_map'])
         del(mapping['user/angle'])
-        self.ids.data_in.ids.data_spinner.values = mapping.keys()
-        self.ids.data_in.ids.data_spinner.text = 'user/angle'
+        # self.ids.data_in.ids.data_spinner.values = mapping.keys()
+        pilot_screen().ids.data_in.ids.data_spinner.values = mapping.keys()
+        # self.ids.data_in.ids.data_spinner.text = 'user/angle'
         self.ids.data_panel_1.ids.data_spinner.disabled = True
         self.ids.data_panel_2.ids.data_spinner.disabled = True
 
