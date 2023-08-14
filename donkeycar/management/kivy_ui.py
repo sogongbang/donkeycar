@@ -11,6 +11,7 @@ from kivy.logger import Logger
 
 import io
 import os
+os.environ['KIVY_GL_BACKEND'] = 'angle_sdl2'
 import atexit
 import yaml
 from PIL import Image as PilImage
@@ -113,6 +114,8 @@ class RcFileHandler:
 
     def __init__(self, file_path='~/.donkeyrc'):
         self.file_path = os.path.expanduser(file_path)
+        file = open(self.file_path,'a+')
+        file.close()
         self.data = self.create_data()
         recursive_update(self.data, self.read_file())
         self.field_properties = self.create_field_properties()
