@@ -11,7 +11,11 @@ from kivy.logger import Logger
 
 import io
 import os
-os.environ['KIVY_GL_BACKEND'] = 'angle_sdl2'
+import platform
+
+if (platform.system() == 'Windows'):
+    os.environ['KIVY_GL_BACKEND'] = 'angle_sdl2'
+
 import atexit
 import yaml
 from PIL import Image as PilImage
